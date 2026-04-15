@@ -1,26 +1,106 @@
 [
   {
     "id": 1,
-    "titulo": "Dune",
-    "imagen": "dune.jpg",
-    "genero": "Aventura",
-    "sinopsis": "Un joven emprende una misión para salvar su mundo.",
-    "trailer": "https://www.youtube.com/embed/mSY_NbSmaUI"
+    "titulo": "Dune: Parte Dos",
+    "generos": ["Ciencia Ficción", "Aventura", "Drama"],
+    "imagen": "img/dune.jpg",
+    "sinopsis": "Paul Atreides se une a los Fremen y emprende un viaje de venganza contra los conspiradores que destruyeron a su familia. Enfrentando una elección entre el amor de su vida y el destino del universo conocido, Paul debe evitar un terrible futuro que solo él puede ver. Mientras tanto, la Emperatriz Madre manipula desde las sombras y el malévolo Feyd-Rautha Harkonnen emerge como el rival definitivo en la lucha por el control de Arrakis y la especia que mueve al universo entero.",
+    "trailer": "https://www.youtube.com/embed/Way9Dexny3w",
+    "estreno": "2024-03-01",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
   },
   {
     "id": 2,
-    "titulo": "50 primeras citas",
-    "imagen": "50-primeras-citas.jpg",
-    "genero": "Comedia",
-    "sinopsis": "Henry se enamora de Lucy, una mujer con pérdida de memoria a corto plazo.",
-    "trailer": "https://www.youtube.com/embed/17KJk3ErIx0"
+    "titulo": "50 Primeras Citas",
+    "generos": ["Comedia", "Romance"],
+    "imagen": "img/50-primeras-citas.jpg",
+    "sinopsis": "Henry es un veterinario marino en Hawái con fobia al compromiso que prefiere las aventuras pasajeras. Todo cambia cuando conoce a Lucy, una mujer encantadora con una condición médica especial que le impide recordar lo que ocurre de un día para otro. A pesar de este obstáculo aparentemente insuperable, Henry se enamora profundamente y decide hacer algo especial cada mañana para que Lucy se enamore de él una y otra vez. Una historia emotiva sobre el amor incondicional y la perseverancia.",
+    "trailer": "https://www.youtube.com/embed/17KJk3ErIx0",
+    "estreno": "2004-02-13",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
   },
   {
     "id": 3,
-    "titulo": "Batman Caballero de la Noche",
-    "imagen": "batman-caballero-de-la-noche.webp",
-    "genero": "Acción",
-    "sinopsis": "La película comienza con el violento robo de uno de los bancos de la mafia por una banda de payasos.",
-    "trailer": "https://www.youtube.com/embed/dzQtWkpc2-c"
+    "titulo": "Batman: El Caballero de la Noche",
+    "generos": ["Acción", "Crimen", "Drama"],
+    "imagen": "img/batman-caballero-de-la-noche.webp",
+    "sinopsis": "Bruce Wayne, el vigilante enmascarado conocido como Batman, enfrenta a su mayor amenaza cuando el caótico y psicótico Joker desata el terror en Ciudad Gótica. El Joker no solo desafía al héroe con sus violentos crímenes, sino que también pone a prueba la moral y los límites de Batman, llevándolo al borde de sus principios. Con el fiscal Harvey Dent como aliado y la ciudad al borde del caos, Batman debe decidir qué clase de héroe quiere ser para proteger a los inocentes.",
+    "trailer": "https://www.youtube.com/embed/dzQtWkpc2-c",
+    "estreno": "2008-07-18",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
+  },
+  {
+    "id": 4,
+    "titulo": "Avengers: Doomsday",
+    "generos": ["Acción", "Aventura", "Ciencia Ficción"],
+    "imagen": "img/avengers-doomsday.jpg",
+    "sinopsis": "Los Vengadores deben reunirse una vez más para enfrentar la mayor amenaza que el universo ha conocido jamás. El Doctor Doom ha adquirido poderes casi ilimitados y amenaza con reescribir la realidad misma según su voluntad. Los héroes más poderosos de la Tierra deben dejar atrás sus diferencias y sus rencores personales para trabajar juntos mientras el tiempo se agota. Con universos enteros en juego, solo el sacrificio supremo de los Vengadores podrá salvar toda la existencia conocida.",
+    "trailer": "https://www.youtube.com/embed/TcMBFSGVi1c",
+    "estreno": "2026-04-10",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
+  },
+  {
+    "id": 5,
+    "titulo": "Interstellar",
+    "generos": ["Ciencia Ficción", "Drama", "Aventura"],
+    "imagen": "img/interstellar.jpg",
+    "sinopsis": "En un futuro cercano, la Tierra se enfrenta a una catástrofe medioambiental que amenaza con extinguir toda la humanidad. Un grupo de astronautas comandado por el ex piloto Cooper emprende un viaje a través de un agujero de gusano cerca de Saturno, en busca de un nuevo hogar para la raza humana. El viaje los llevará a explorar planetas en otra galaxia, desafiar las leyes del tiempo y el espacio, mientras Cooper lucha con el amor por su hija y el peso inconmensurable de salvar a la humanidad entera.",
+    "trailer": "https://www.youtube.com/embed/zSWdZVtXT7E",
+    "estreno": "2014-11-07",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
+  },
+  {
+    "id": 6,
+    "titulo": "Spider-Man: Más Allá del Spider-Verso",
+    "generos": ["Animación", "Acción", "Aventura"],
+    "imagen": "img/spiderman-beyond.jpg",
+    "sinopsis": "Miles Morales regresa en una nueva aventura que lo lleva por el multiverso de los Spider-Man a una velocidad vertiginosa. Mientras intenta reencontrarse con Gwen Stacy, Miles descubre una conspiración que amenaza con destruir todos los universos existentes. Deberá enfrentarse a miles de versiones alternativas de Spider-Man y tomar decisiones imposibles que definirán no solo su propio destino, sino el de todos los universos del Spider-Verso y el de las personas que más ama. El futuro del multiverso entero depende de él.",
+    "trailer": "https://www.youtube.com/embed/ULBjdHnMIaw",
+    "estreno": "2026-03-28",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
+  },
+  {
+    "id": 7,
+    "titulo": "Gladiador II",
+    "generos": ["Acción", "Drama", "Historia"],
+    "imagen": "img/gladiador-2.jpg",
+    "sinopsis": "Lucius, el nieto del fallecido Marco Aurelio, es capturado y llevado a Roma después de que sus tierras son conquistadas por el poderoso ejército del Imperio Romano. Obligado a luchar como gladiador en el gran Coliseo, Lucius debe encontrar la fuerza interior para sobrevivir mientras conspira para vengarse de los traidores que destruyeron su vida y su familia. En un mundo de política corrupta, poder absoluto y violencia extrema, solo los más valientes pueden forjarse un destino digno en la sangrienta arena romana.",
+    "trailer": "https://www.youtube.com/embed/qwMbpO20_YY",
+    "estreno": "2024-11-22",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
+  },
+  {
+    "id": 8,
+    "titulo": "El Señor de los Anillos: La Guerra de los Rohirrim",
+    "generos": ["Animación", "Fantasía", "Acción"],
+    "imagen": "img/lotr-rohirrim.jpg",
+    "sinopsis": "La historia del legendario Rey Helm Hammerhand de Rohan cobra vida en esta épica aventura de animación ambientada en la Tierra Media. Cuando los Dunlendings atacan el reino de Rohan, Helm y sus valientes guerreros se refugian en la fortaleza que lleva su nombre: el Abismo de Helm. Su hija Héra lidera heroicamente la resistencia mientras los días oscuros del asedio se prolongan cruelmente. Una historia de valentía, sacrificio y redención ambientada en el rico universo fantástico creado por J.R.R. Tolkien.",
+    "trailer": "https://www.youtube.com/embed/jrhSLlos5bU",
+    "estreno": "2026-04-15",
+    "precios": {
+      "estreno": 8.50,
+      "normal": 5.00
+    }
   }
 ]
