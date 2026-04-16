@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Renta de Películas — CinePlus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../index.html">CinePlus</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="renta.html">Renta</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5" style="max-width: 700px;">
+    <h2 class="mb-1">Renta de Películas</h2>
+    <p class="text-muted mb-4">Selecciona las películas que deseas rentar y completa el formulario.</p>
+
+    <!-- Tarea 6: Formulario de renta -->
+    <form id="form-renta" novalidate>
+
+      <!-- Nombre del cliente -->
+      <div class="mb-3">
+        <label for="cliente-nombre" class="form-label">Nombre del cliente</label>
+        <input type="text" class="form-control" id="cliente-nombre" placeholder="Tu nombre completo">
+        <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+      </div>
+
+      <!-- Selección de películas (checkboxes cargados por AJAX) -->
+      <div class="mb-3">
+        <label class="form-label">Películas a rentar</label>
+        <div id="lista-peliculas-renta" class="border rounded p-3" style="border-color: var(--cp-borde) !important; background-color: #21262d;">
+          <p class="text-muted mb-0">Cargando películas...</p>
+        </div>
+        <div class="invalid-feedback d-block d-none" id="error-peliculas">
+          Debes seleccionar al menos una película.
+        </div>
+      </div>
+
+      <!-- Forma de pago -->
+      <div class="mb-3">
+        <label for="forma-pago" class="form-label">Forma de pago</label>
+        <select class="form-select" id="forma-pago">
+          <option value="">— Selecciona una opción —</option>
+          <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+          <option value="Tarjeta de débito">Tarjeta de débito</option>
+          <option value="Efectivo">Efectivo</option>
+          <option value="Transferencia bancaria">Transferencia bancaria</option>
+          <option value="PayPal">PayPal</option>
+        </select>
+        <div class="invalid-feedback">Selecciona una forma de pago.</div>
+      </div>
+
+      <!-- Número de días -->
+      <div class="mb-4">
+        <label for="dias-renta" class="form-label">Número de días de renta</label>
+        <input type="number" class="form-control" id="dias-renta" min="1" max="30" value="1">
+        <div class="form-text">Mínimo 1 día, máximo 30 días.</div>
+        <div class="invalid-feedback">Ingresa un número de días válido (1–30).</div>
+      </div>
+
+      <button type="submit" class="btn btn-danger px-5">Ver resumen de renta</button>
+
+    </form>
+  </main>
+
+  <!-- Footer fijo -->
+  <footer class="site-footer">
+    <small>&copy; 2026 CinePlus. Todos los derechos reservados.</small>
+  </footer>
+
+  <!-- Modal de confirmación de renta (Tarea 6) -->
+  <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="confirmacionLabel" aria-modal="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmacionLabel">Resumen de tu renta</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-borderless table-dark mb-0">
+            <tbody>
+              <tr>
+                <th scope="row" style="width:40%">Cliente:</th>
+                <td id="resumen-cliente"></td>
+              </tr>
+              <tr>
+                <th scope="row">Películas seleccionadas:</th>
+                <td id="resumen-peliculas"></td>
+              </tr>
+              <tr>
+                <th scope="row">Forma de pago:</th>
+                <td id="resumen-pago"></td>
+              </tr>
+              <tr>
+                <th scope="row">Días de renta:</th>
+                <td id="resumen-dias"></td>
+              </tr>
+              <tr class="border-top">
+                <th scope="row">Total a pagar:</th>
+                <td id="resumen-total" class="renta-total"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Modificar</button>
+          <button type="button" class="btn btn-danger" id="btn-confirmar-renta">Confirmar renta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de renta exitosa -->
+  <div class="modal fade" id="modalExito" tabindex="-1" aria-modal="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">¡Renta confirmada!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center py-3">
+          <p class="fs-4">✓</p>
+          <p>Tu renta ha sido procesada con éxito. ¡Disfruta tu película!</p>
+        </div>
+        <div class="modal-footer">
+          <a href="../index.html" class="btn btn-danger">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /* Devuelve true si la película tiene ≤ 30 días desde su estreno */
+    function esEstreno(fecha) {
+      var hoy = new Date();
+      var est = new Date(fecha);
+      return Math.floor((hoy - est) / (1000 * 60 * 60 * 24)) <= 30;
+    }
+
+    var peliculasCargadas = [];
+
+    $(function () {
+
+      /* Cargar películas disponibles como checkboxes */
+      $.ajax({
+        url: '/data/peliculas.json',
+        method: 'GET',
+        dataType: 'json',
+        success: function (peliculas) {
+          peliculasCargadas = peliculas;
+          var html = '';
+          peliculas.forEach(function (p) {
+            var precio = esEstreno(p.estreno) ? p.precios.estreno : p.precios.normal;
+            html +=
+              '<div class="form-check mb-2">' +
+                '<input class="form-check-input pelicula-check" type="checkbox"' +
+                  ' id="peli-' + p.id + '"' +
+                  ' value="' + p.id + '"' +
+                  ' data-titulo="' + p.titulo + '"' +
+                  ' data-precio="' + precio + '">' +
+                '<label class="form-check-label" for="peli-' + p.id + '">' +
+                  p.titulo +
+                  ' <span class="text-muted small">— $' + precio.toFixed(2) + '/día</span>' +
+                '</label>' +
+              '</div>';
+          });
+          $('#lista-peliculas-renta').html(html);
+        },
+        error: function () {
+          $('#lista-peliculas-renta').html(
+            '<p class="text-danger mb-0">No se pudieron cargar las películas.</p>'
+          );
+        }
+      });
+
+      /* Envío del formulario: validar y mostrar modal de confirmación */
+      $('#form-renta').on('submit', function (e) {
+        e.preventDefault();
+        var valido = true;
+
+        /* Limpiar validaciones previas */
+        $('.form-control, .form-select').removeClass('is-invalid');
+        $('#error-peliculas').addClass('d-none');
+
+        /* Validar nombre */
+        var nombre = $('#cliente-nombre').val().trim();
+        if (!nombre) {
+          $('#cliente-nombre').addClass('is-invalid');
+          valido = false;
+        }
+
+        /* Validar películas seleccionadas */
+        var seleccionadas = $('.pelicula-check:checked');
+        if (seleccionadas.length === 0) {
+          $('#error-peliculas').removeClass('d-none');
+          valido = false;
+        }
+
+        /* Validar forma de pago */
+        var pago = $('#forma-pago').val();
+        if (!pago) {
+          $('#forma-pago').addClass('is-invalid');
+          valido = false;
+        }
+
+        /* Validar días */
+        var dias = parseInt($('#dias-renta').val(), 10);
+        if (!dias || dias < 1 || dias > 30) {
+          $('#dias-renta').addClass('is-invalid');
+          valido = false;
+        }
+
+        if (!valido) return;
+
+        /* Construir resumen */
+        var listaPelis = [];
+        var totalPrecio = 0;
+        seleccionadas.each(function () {
+          var titulo = $(this).data('titulo');
+          var precio = parseFloat($(this).data('precio'));
+          listaPelis.push(titulo + ' ($' + precio.toFixed(2) + '/día)');
+          totalPrecio += precio;
+        });
+
+        var total = (totalPrecio * dias).toFixed(2);
+
+        $('#resumen-cliente').text(nombre);
+        $('#resumen-peliculas').html(listaPelis.join('<br>'));
+        $('#resumen-pago').text(pago);
+        $('#resumen-dias').text(dias + (dias === 1 ? ' día' : ' días'));
+        $('#resumen-total').text('$' + total);
+
+        var modalConf = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+        modalConf.show();
+      });
+
+      /* Confirmar renta: cerrar modal de confirmación y mostrar éxito */
+      $('#btn-confirmar-renta').on('click', function () {
+        bootstrap.Modal.getInstance(document.getElementById('modalConfirmacion')).hide();
+        var modalExito = new bootstrap.Modal(document.getElementById('modalExito'));
+        modalExito.show();
+        document.getElementById('form-renta').reset();
+      });
+
+    });
+  </script>
+</body>
+</html>

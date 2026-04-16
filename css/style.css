@@ -1,9 +1,263 @@
+/* Google Fonts — Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===== Variables de color ===== */
+:root {
+  --cp-rojo:      #e63946;
+  --cp-azul:      #1d3557;
+  --cp-azul-claro:#457b9d;
+  --cp-crema:     #f1faee;
+  --cp-fondo:     #0d1117;
+  --cp-tarjeta:   #161b22;
+  --cp-texto:     #e6edf3;
+  --cp-borde:     #30363d;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #f8f9fa;
-  }
-  
-  .card img {
-    height: 250px;
-    object-fit: cover;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--cp-fondo);
+  color: var(--cp-texto);
+  /* Espacio inferior para que el footer fijo no tape el contenido */
+  padding-bottom: 60px;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #010409 !important;
+  border-bottom: 2px solid var(--cp-rojo);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--cp-rojo) !important;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: var(--cp-texto) !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--cp-rojo) !important;
+}
+
+/* ===== Header / Hero ===== */
+.site-header {
+  background: linear-gradient(135deg, #1d3557 0%, #e63946 100%);
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.site-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.site-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ===== Tarjetas de película ===== */
+.card {
+  background-color: var(--cp-tarjeta);
+  border: 1px solid var(--cp-borde);
+  color: var(--cp-texto);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.35) !important;
+}
+
+.card-img-top {
+  height: 260px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  color: #8b949e;
+}
+
+/* ===== Precio en tarjeta ===== */
+.precio-pelicula {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cp-rojo);
+}
+
+/* ===== Botones ===== */
+.btn-primary {
+  background-color: var(--cp-azul);
+  border-color: var(--cp-azul);
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: var(--cp-azul-claro);
+  border-color: var(--cp-azul-claro);
+}
+
+.btn-danger {
+  background-color: var(--cp-rojo);
+  border-color: var(--cp-rojo);
+  font-weight: 500;
+}
+
+/* ===== Spinner ===== */
+#spinner-container {
+  padding: 4rem 0;
+  color: var(--cp-texto);
+}
+
+/* ===== Sección de detalle ===== */
+.detalle-card {
+  background-color: var(--cp-tarjeta);
+  border: 1px solid var(--cp-borde);
+  color: var(--cp-texto);
+}
+
+.detalle-sinopsis {
+  line-height: 1.8;
+  color: #c9d1d9;
+}
+
+/* ===== Reseñas ===== */
+.resena-card {
+  background-color: #21262d;
+  border: 1px solid var(--cp-borde);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.resena-usuario {
+  font-weight: 600;
+  color: var(--cp-azul-claro);
+  font-size: 0.9rem;
+}
+
+.resena-comentario {
+  font-size: 0.9rem;
+  color: #c9d1d9;
+  margin: 0.3rem 0 0;
+}
+
+.estrellas span {
+  font-size: 1.1rem;
+}
+
+/* ===== Formularios ===== */
+.form-control,
+.form-select {
+  background-color: #21262d;
+  border-color: var(--cp-borde);
+  color: var(--cp-texto);
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #21262d;
+  border-color: var(--cp-azul-claro);
+  color: var(--cp-texto);
+  box-shadow: 0 0 0 0.2rem rgba(69, 123, 157, 0.35);
+}
+
+.form-control::placeholder {
+  color: #6e7681;
+}
+
+.form-check-input {
+  background-color: #21262d;
+  border-color: var(--cp-borde);
+}
+
+.form-check-input:checked {
+  background-color: var(--cp-rojo);
+  border-color: var(--cp-rojo);
+}
+
+.form-label {
+  color: var(--cp-crema);
+  font-weight: 500;
+}
+
+/* ===== Modales ===== */
+.modal-content {
+  background-color: #161b22;
+  border: 1px solid var(--cp-borde);
+  color: var(--cp-texto);
+}
+
+.modal-header {
+  border-bottom-color: var(--cp-borde);
+}
+
+.modal-footer {
+  border-top-color: var(--cp-borde);
+}
+
+/* ===== Alerts ===== */
+.alert-info {
+  background-color: rgba(69, 123, 157, 0.2);
+  border-color: var(--cp-azul-claro);
+  color: #a0c4d8;
+}
+
+/* ===== Footer fijo ===== */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #010409;
+  border-top: 1px solid var(--cp-borde);
+  color: #8b949e;
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+  z-index: 1000;
+}
+
+/* ===== Página de renta ===== */
+.renta-total {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cp-rojo);
+}
+
+/* ===== Utilidades ===== */
+h2, h3, h4, h5 {
+  color: var(--cp-crema);
+}
+
+a {
+  color: var(--cp-azul-claro);
+}
+
+a:hover {
+  color: var(--cp-rojo);
+}
+
+hr {
+  border-color: var(--cp-borde);
+}

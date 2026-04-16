@@ -1,96 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Detalle de Película</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container py-5">
-      <div class="text-center mb-4">
-        <h2 id="titulo" class="mb-3"></h2>
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle — CinePlus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
 
-        <!-- Componente: Alerta informativa -->
-        <div class="alert alert-info" role="alert">
-          ¡Disfruta del tráiler oficial y conoce más sobre esta película!
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../index.html">CinePlus</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="renta.html">Renta</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-        <!-- Tráiler embebido -->
-        <div class="ratio ratio-16x9 mb-4">
-          <iframe id="trailer" src="" allowfullscreen></iframe>
-        </div>
+  <main class="container py-4">
+    <div id="detalle-contenido">
+
+      <!-- Título y badge de estreno (Tarea 4) -->
+      <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+        <h2 id="titulo" class="mb-0"></h2>
+        <span id="badge-estreno"></span>
       </div>
 
-      <!-- Tarjeta con sinopsis e imagen -->
-      <div class="card mb-4">
+      <!-- Precio -->
+      <p id="precio-detalle" class="precio-pelicula mb-3"></p>
+
+      <!-- Alerta informativa -->
+      <div class="alert alert-info mb-4" role="alert">
+        ¡Disfruta del tráiler oficial y conoce más sobre esta película!
+      </div>
+
+      <!-- Tráiler embebido -->
+      <div class="ratio ratio-16x9 mb-4">
+        <iframe id="trailer" src="" allowfullscreen title="Tráiler oficial"></iframe>
+      </div>
+
+      <!-- Tarjeta con póster y sinopsis -->
+      <div class="card detalle-card mb-4">
         <div class="row g-0">
           <div class="col-md-4">
-            <img
-              id="poster"
-              src=""
-              class="img-fluid rounded-start"
-              alt="Poster de la película"
-            />
+            <img id="poster" src="" class="img-fluid rounded-start h-100" style="object-fit:cover;" alt="Póster de la película">
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">Sinopsis</h5>
-              <p id="sinopsis" class="card-text"></p>
-
-              <!-- Componente: Badge de género -->
-              <span id="genero" class="badge bg-secondary"></span>
+              <p id="sinopsis" class="detalle-sinopsis"></p>
+              <div id="generos-badges" class="mt-2"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="text-center">
-        <a href="../index.html" class="btn btn-secondary">Volver al inicio</a>
+      <!-- Tarea 7: Sección de reseñas -->
+      <hr>
+      <h4 class="mb-3">Reseñas del público</h4>
+      <div id="resenas-container">
+        <p class="text-muted">Cargando reseñas...</p>
       </div>
+
+      <div class="text-center mt-4">
+        <a href="../index.html" class="btn btn-secondary">← Volver al inicio</a>
+      </div>
+
     </div>
+  </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-      $(function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get("id");
+  <!-- Footer fijo -->
+  <footer class="site-footer">
+    <small>&copy; 2026 CinePlus. Todos los derechos reservados.</small>
+  </footer>
 
-        $.ajax({
-          url: "../data/peliculas.json",
-          method: "GET",
-          dataType: "json",
-          success: function (peliculas) {
-            const peli = peliculas.find((p) => p.id == id);
-            if (peli) {
-              $("#titulo").text(peli.titulo);
-              $("#poster").attr("src", "../img/" + peli.imagen);
-              $("#sinopsis").text(peli.sinopsis);
-              $("#trailer").attr("src", peli.trailer);
-              $("#genero").text(peli.genero);
-            } else {
-              mostrarError();
-            }
-          },
-          error: function () {
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /* Devuelve HTML de estrellas (★/☆) según calificación 1-5 */
+    function renderEstrellas(cal) {
+      var html = '';
+      for (var i = 1; i <= 5; i++) {
+        html += i <= cal
+          ? '<span class="text-warning">★</span>'
+          : '<span class="text-secondary">☆</span>';
+      }
+      return html;
+    }
+
+    /* Devuelve true si la película tiene menos de 30 días desde su estreno */
+    function esEstreno(fecha) {
+      var hoy = new Date();
+      var est = new Date(fecha);
+      return Math.floor((hoy - est) / (1000 * 60 * 60 * 24)) <= 30;
+    }
+
+    $(function () {
+      var id = sessionStorage.getItem('cpMovieId') || new URLSearchParams(window.location.search).get('id');
+
+      /* Tarea 2 y 4: Cargar película y mostrar badge + precio */
+      $.ajax({
+        url: '/data/peliculas.json',
+        method: 'GET',
+        dataType: 'json',
+        success: function (peliculas) {
+          var peli = peliculas.find(function (p) { return p.id == id; });
+          if (!peli) {
             mostrarError();
-          },
-        });
+            return;
+          }
 
-        function mostrarError() {
-          $("#detalle-pelicula").html(`
-          <div class="alert alert-danger text-center" role="alert">
-            No se pudo cargar la información de la película.
-          </div>
-          <div class="text-center">
-            <a href="../index.html" class="btn btn-secondary mt-3">Volver al inicio</a>
-          </div>
-        `);
+          var imgSrc = peli.imagen.startsWith('http') ? peli.imagen : '/' + peli.imagen;
+          var nuevo  = esEstreno(peli.estreno);
+          var precio = nuevo ? peli.precios.estreno : peli.precios.normal;
+
+          $('#titulo').text(peli.titulo);
+          $('#poster').attr('src', imgSrc).attr('alt', peli.titulo);
+          $('#sinopsis').text(peli.sinopsis);
+          $('#trailer').attr('src', peli.trailer);
+
+          /* Tarea 4: Badge estreno o en cartelera */
+          if (nuevo) {
+            $('#badge-estreno').html('<span class="badge bg-success fs-6">ESTRENO</span>');
+          } else {
+            $('#badge-estreno').html('<span class="badge bg-primary fs-6">EN CARTELERA</span>');
+          }
+
+          $('#precio-detalle').text('Precio: $' + precio.toFixed(2));
+
+          /* Géneros como badges */
+          var badgesHtml = peli.generos.map(function (g) {
+            return '<span class="badge bg-secondary me-1">' + g + '</span>';
+          }).join('');
+          $('#generos-badges').html(badgesHtml);
+
+          /* Tarea 7: Cargar reseñas */
+          $.ajax({
+            url: '/data/resenas.json',
+            method: 'GET',
+            dataType: 'json',
+            success: function (todasResenas) {
+              var resenas = todasResenas[String(peli.id)];
+              if (!resenas || resenas.length === 0) {
+                $('#resenas-container').html(
+                  '<p class="text-muted">Aún no hay reseñas para esta película.</p>'
+                );
+                return;
+              }
+
+              var html = '';
+              resenas.forEach(function (r) {
+                html +=
+                  '<div class="resena-card">' +
+                    '<div class="d-flex justify-content-between align-items-center">' +
+                      '<span class="resena-usuario">' + r.usuario + '</span>' +
+                      '<span class="estrellas">' + renderEstrellas(r.calificacion) + '</span>' +
+                    '</div>' +
+                    '<p class="resena-comentario">' + r.comentario + '</p>' +
+                  '</div>';
+              });
+              /* Tarea 7: jQuery renderiza las reseñas */
+              $('#resenas-container').hide().html(html).slideDown(400);
+            },
+            error: function () {
+              $('#resenas-container').html(
+                '<p class="text-muted">No se pudieron cargar las reseñas.</p>'
+              );
+            }
+          });
+        },
+        error: function () {
+          mostrarError();
         }
       });
-    </script>
-  </body>
+
+      function mostrarError() {
+        $('#detalle-contenido').html(
+          '<div class="alert alert-danger text-center">No se pudo cargar la información de la película.</div>' +
+          '<div class="text-center">' +
+            '<a href="../index.html" class="btn btn-secondary mt-3">← Volver al inicio</a>' +
+          '</div>'
+        );
+      }
+    });
+  </script>
+</body>
 </html>

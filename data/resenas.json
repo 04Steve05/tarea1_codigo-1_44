@@ -1,0 +1,173 @@
+{
+  "1": [
+    {
+      "usuario": "Carlos Mendoza",
+      "comentario": "Una obra maestra de la ciencia ficción moderna. Visualmente impresionante y la actuación de Zendaya es increíble.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Ana García",
+      "comentario": "La ambientación en Arrakis es perfecta. Me transportó completamente al mundo del desierto.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Pedro Ramírez",
+      "comentario": "Buena película aunque el ritmo es lento al principio. La segunda parte vale la pena esperar.",
+      "calificacion": 4
+    },
+    {
+      "usuario": "María López",
+      "comentario": "Las actuaciones son excelentes y la banda sonora de Hans Zimmer es absolutamente memorable.",
+      "calificacion": 5
+    }
+  ],
+  "2": [
+    {
+      "usuario": "Jorge Vargas",
+      "comentario": "Una comedia romántica muy emotiva. Adam Sandler y Drew Barrymore tienen una química increíble en pantalla.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Sofía Torres",
+      "comentario": "Me hizo reír y llorar al mismo tiempo. Una historia de amor muy bonita y original.",
+      "calificacion": 4
+    },
+    {
+      "usuario": "Luis Herrera",
+      "comentario": "Entretenida aunque un poco predecible. La música y los paisajes de Hawái son preciosos.",
+      "calificacion": 3
+    },
+    {
+      "usuario": "Patricia Vega",
+      "comentario": "Una de mis comedias románticas favoritas. La veo cada año y siempre me emociona igual.",
+      "calificacion": 5
+    }
+  ],
+  "3": [
+    {
+      "usuario": "Roberto Fuentes",
+      "comentario": "La mejor película de superhéroes jamás hecha. Heath Ledger como el Joker es simplemente legendario.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Daniela Ríos",
+      "comentario": "Una película oscura e intensa que redefinió el género. La actuación de todo el elenco es perfecta.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Miguel Ángel Cruz",
+      "comentario": "Magistral. Christopher Nolan creó un thriller policial disfrazado de película de superhéroes.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Carmen Salinas",
+      "comentario": "Muy buena pero demasiado oscura para mi gusto. Reconozco que es una obra maestra del cine.",
+      "calificacion": 4
+    },
+    {
+      "usuario": "Eduardo Mora",
+      "comentario": "La veo cada año y siempre encuentro nuevos detalles. Una película que mejora con cada visionado.",
+      "calificacion": 5
+    }
+  ],
+  "4": [
+    {
+      "usuario": "Alejandro Pérez",
+      "comentario": "¡Increíble regreso! Robert Downey Jr. como el Doctor Doom es una elección brillante y aterradora.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Valentina Ruiz",
+      "comentario": "La escena final es alucinante. No me la esperaba para nada. El MCU volvió con todo.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Sebastián Díaz",
+      "comentario": "Mucho mejor de lo esperado. Las peleas de superhéroes son espectaculares y el guión es sólido.",
+      "calificacion": 4
+    }
+  ],
+  "5": [
+    {
+      "usuario": "Fernanda Castro",
+      "comentario": "Una película que te hace pensar en la relatividad del tiempo y el amor de padres e hijos. Magistral.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Andrés Morales",
+      "comentario": "Científicamente fascinante y emocionalmente devastadora. La escena de los mensajes te rompe el corazón.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Isabella Navarro",
+      "comentario": "Nolan en su máximo esplendor. Las imágenes del espacio son impresionantes y la historia es conmovedora.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Gabriel Ortiz",
+      "comentario": "Algo confusa al final pero visualmente es perfecta. Matthew McConaughey da la actuación de su vida.",
+      "calificacion": 4
+    }
+  ],
+  "6": [
+    {
+      "usuario": "Camila Flores",
+      "comentario": "Supera a Into the Spider-Verse en animación y en historia. Miles Morales es el mejor Spider-Man.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Diego Romero",
+      "comentario": "El estilo visual es único y alucinante. Cada fotograma es una obra de arte. ¡Impresionante!",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Natalia Jiménez",
+      "comentario": "El final me dejó con el corazón en la mano. Necesito la tercera parte ya. Excelente animación.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Tomás Gutiérrez",
+      "comentario": "Muy buena pero el cliffhanger es frustrante. La animación justifica verla en el mejor cine posible.",
+      "calificacion": 4
+    }
+  ],
+  "7": [
+    {
+      "usuario": "Lucía Mendez",
+      "comentario": "Una secuela digna del original. Paul Mescal es excelente y Ridley Scott demostró que aún tiene mucho que decir.",
+      "calificacion": 4
+    },
+    {
+      "usuario": "Marco Delgado",
+      "comentario": "Acción espectacular y ambientación impresionante. Denzel Washington roba todas las escenas en las que aparece.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Elena Soto",
+      "comentario": "Buena pero no llega al nivel del clásico de 2000. Los combates en el Coliseo son visualmente increíbles.",
+      "calificacion": 4
+    },
+    {
+      "usuario": "Ricardo Blanco",
+      "comentario": "El guión tiene algunos problemas pero la película es entretenida y las batallas son épicas y viscerales.",
+      "calificacion": 3
+    }
+  ],
+  "8": [
+    {
+      "usuario": "Claudia Reyes",
+      "comentario": "Una joya animada en el universo Tolkien. Héra es una protagonista memorable y valiente.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Hernán Varela",
+      "comentario": "Increíble para los fans de Tolkien. La animación captura perfectamente la épica visual de la Tierra Media.",
+      "calificacion": 5
+    },
+    {
+      "usuario": "Mariana Espinoza",
+      "comentario": "No necesitas ser fan de El Señor de los Anillos para disfrutarla. Una historia de guerra emotiva y poderosa.",
+      "calificacion": 4
+    }
+  ]
+}
