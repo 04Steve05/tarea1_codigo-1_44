@@ -109,7 +109,7 @@
 
       /* Tarea 2 y 4: Cargar película y mostrar badge + precio */
       $.ajax({
-        url: '/data/peliculas.json',
+        url: '../data/peliculas.json',
         method: 'GET',
         dataType: 'json',
         success: function (peliculas) {
@@ -119,7 +119,7 @@
             return;
           }
 
-          var imgSrc = peli.imagen.startsWith('http') ? peli.imagen : '/' + peli.imagen;
+          var imgSrc = peli.imagen.startsWith('http') ? peli.imagen : '../' + peli.imagen;
           var nuevo  = esEstreno(peli.estreno);
           var precio = nuevo ? peli.precios.estreno : peli.precios.normal;
 
@@ -145,7 +145,7 @@
 
           /* Tarea 7: Cargar reseñas */
           $.ajax({
-            url: '/data/resenas.json',
+            url: '../data/resenas.json',
             method: 'GET',
             dataType: 'json',
             success: function (todasResenas) {
