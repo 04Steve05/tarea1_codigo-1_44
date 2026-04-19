@@ -40,3 +40,6 @@ CinePlus es una aplicación web de películas que permite a los usuarios explora
 4. Abrir `http://localhost:3000` en el navegador.
 
 > **Nota:** El proyecto debe ejecutarse con un servidor local para que AJAX funcione correctamente. No abrir `index.html` directamente como archivo (`file://`).
+
+URL del repositorio GitHub:
+https://github.com/04Steve05/tarea1_codigo-1_44
