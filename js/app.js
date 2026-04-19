@@ -23,7 +23,7 @@ $(document).ready(function () {
   /* Navegar a detalle guardando el id en sessionStorage */
   $(document).on('click', '.btn-ver-detalle', function () {
     sessionStorage.setItem('cpMovieId', $(this).data('id'));
-    window.location.href = '/pages/detalle.html';
+    window.location.href = 'pages/detalle.html';
   });
 
   /* Abrir modal de tráiler al hacer click en el botón */
