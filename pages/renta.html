@@ -28,7 +28,8 @@
 
   <main class="container py-5" style="max-width: 700px;">
     <h2 class="mb-1">Renta de Películas</h2>
-    <p class="text-muted mb-4">Selecciona las películas que deseas rentar y completa el formulario.</p>
+    <!-- Se cambió el color de ciertos textos a blanco para mejorar la legibilidad -->
+    <p class="text-white mb-4">Selecciona las películas que deseas rentar y completa el formulario.</p>
 
     <!-- Tarea 6: Formulario de renta -->
     <form id="form-renta" novalidate>
@@ -36,7 +37,8 @@
       <!-- Nombre del cliente -->
       <div class="mb-3">
         <label for="cliente-nombre" class="form-label">Nombre del cliente</label>
-        <input type="text" class="form-control" id="cliente-nombre" placeholder="Tu nombre completo">
+        <input type="text" class="form-control" id="cliente-nombre" placeholder="Tu nombre completo" maxlength="50">
+
         <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
       </div>
 
@@ -69,7 +71,7 @@
       <div class="mb-4">
         <label for="dias-renta" class="form-label">Número de días de renta</label>
         <input type="number" class="form-control" id="dias-renta" min="1" max="30" value="1">
-        <div class="form-text">Mínimo 1 día, máximo 30 días.</div>
+        <div class="form-text" style="color: #fff !important;">Mínimo 1 día, máximo 30 días.</div>
         <div class="invalid-feedback">Ingresa un número de días válido (1–30).</div>
       </div>
 
@@ -189,6 +191,7 @@
           );
         }
       });
+
 
       /* Envío del formulario: validar y mostrar modal de confirmación */
       $('#form-renta').on('submit', function (e) {
